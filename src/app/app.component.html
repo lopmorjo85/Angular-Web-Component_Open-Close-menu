@@ -1,0 +1,24 @@
+<hello name="{{ name }}"></hello>
+<p>
+  Start editing to see some magic happen :)
+</p>
+
+<dile-menu-hamburger [opened]="menuOpenned"
+(dile-menu-hamburger-opened)="menuOpenedHandler()"
+(dile-menu-hamburger-closed)="menuClosedHandler()"
+>
+<nav slot="menu">
+  <p><a href="one.html">Link one</a></p>
+  <p><a href="two.html">Link two</a></p>
+</nav>
+</dile-menu-hamburger>
+
+<div *ngIf="menuOpenned; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>  
+  <button (click)="closeMenu()"> Cerrar menú </button>
+</ng-template>
+<ng-template #elseBlock>
+  <button (click)="openMenu()"> Abrir menú </button>
+</ng-template>
+
+{{menuOpenned}}
